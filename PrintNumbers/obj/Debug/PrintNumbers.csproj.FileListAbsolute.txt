@@ -9,3 +9,14 @@ D:\RUSH\Training\PrintNumbers\PrintNumbers\PrintNumbers\bin\Debug\nunit.framewor
 D:\RUSH\Training\PrintNumbers\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.exe
 D:\RUSH\Training\PrintNumbers\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.pdb
 D:\RUSH\Training\PrintNumbers\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.csprojResolveAssemblyReference.cache
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\PrintNumbers.exe.config
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\PrintNumbers.exe
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\PrintNumbers.pdb
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\FluentAssertions.dll
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\nunit.framework.dll
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\FluentAssertions.pdb
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\FluentAssertions.xml
+D:\RUSH\Training\PrintNumbers\PrintNumbers\bin\Debug\nunit.framework.xml
+D:\RUSH\Training\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.exe
+D:\RUSH\Training\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.pdb
+D:\RUSH\Training\PrintNumbers\PrintNumbers\obj\Debug\PrintNumbers.csprojResolveAssemblyReference.cache

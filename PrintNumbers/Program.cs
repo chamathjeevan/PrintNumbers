@@ -10,7 +10,7 @@ namespace PrintNumbers
     {
         static void Main(string[] args)
         {
-           Console.WriteLine( NumberToText.ToEnglishText(1000));
+            Console.WriteLine(NumberToText.ToEnglishWords(100));
             Console.Read();
 
         }

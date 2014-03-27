@@ -36,19 +36,22 @@ namespace PrintNumbers
         [TestCase(21, "Twenty One")]
         [TestCase(30, "Thirty")]
         [TestCase(40, "Forty")]
+        [TestCase(47, "Forty Seven")]
         [TestCase(50, "Fifty")]
         [TestCase(60, "Sixty")]
         [TestCase(70, "Seventy")]
         [TestCase(80, "Eighty")]
         [TestCase(90, "Ninety")]
-        [TestCase(100, "One Hundred")]
+         [TestCase(98, "Ninety Eight")]
+         [TestCase(100, "One Hundred")]
+        [TestCase(200, "Two Hundred")]
         [TestCase(1000, "One Thousand")]
-        [TestCase(8576, "Eight  Thousand,  Five  Hundred  Seventy  Six")]
-
-
+        [TestCase(8576, "Eight Thousand Five Hundred Seventy Six")]
+        [TestCase(76897, "Seventy Six Thousand Eight Hundred Ninety Seven")]
+        [TestCase(234566786, "Two Hundred Thirty Four Million Five Hundred Sixty Six Thousand Seven Hundred Eighty Six")]
         public void ShouldConvertToEnglishText(int number, string englishText)
         {
-            number.ToEnglishText().Should().Be(englishText);
+            number.ToEnglishWords().Should().Be(englishText);
         }
     }
 }

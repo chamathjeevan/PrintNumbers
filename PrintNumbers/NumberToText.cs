@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,9 @@ namespace PrintNumbers
 {
     public static class NumberToText
     {
-        private static string EnglishTextNumber;
+        private static string _numberInEnglishWords;
 
-
-        static Dictionary<int, string> texTDictionary = new Dictionary<int, string>(){
+        static Dictionary<int, string> wordsOfEnglishNumbers = new Dictionary<int, string>(){
                                                                     {0,""},
                                                                     {1,"One"},
                                                                     {2,"Two"},
@@ -49,59 +49,57 @@ namespace PrintNumbers
 
 
 
-        public static string ToEnglishText(this int Number)
+        public static string ToEnglishWords(this int numberToConvert)
         {
-            EnglishTextNumber = String.Empty;
-            Spiltconcatenation(Number);
-            return EnglishTextNumber.Trim();
+            _numberInEnglishWords = String.Empty;
+            EnglishNumberBuilder(numberToConvert);
+            return _numberInEnglishWords.Trim();
         }
 
-        private static void Spiltconcatenation(int number)
+        private static void EnglishNumberBuilder(int number)
         {
-            int[] numberArray = number.ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToArray();
+            if (number == 0) return;
 
-            int TenThousand = number%10000;
-
-            int Thousand = number%1000;
-
-            int Hundred = number%100;
-
-
-            if (TenThousand >= 10000)
+            if (number >= 1000000)
             {
-                WordBuilder(Convert.ToInt32(numberArray[0].ToString() + numberArray[1].ToString()));
-                WordBuilder(1000);
-                if (Thousand > 0)
-                    Spiltconcatenation(TenThousand);
+                AddWords(number, 1000000);
+
+            }else if (number >= 1000)
+            {
+                AddWords(number, 1000);
             }
-            else if (number >= 1000)
+            else if (number >= 100)
             {
-                WordBuilder(numberArray[0]);
-                WordBuilder(1000);
-                if (Thousand > 0)
-                Spiltconcatenation(Thousand);
-            }else if (number >= 100)
+                AddWords(number, 100);
+            }
+            else if (number > 20)
             {
-                WordBuilder(numberArray[0]);
-                WordBuilder(100);
-                if (Hundred > 0)
-                Spiltconcatenation(Hundred);
-            }else if (number >= 21)
-            {
-                WordBuilder(Convert.ToInt32(numberArray[0] + "0"));
-                WordBuilder(numberArray[1]);
-
+                AddWords(number, 10);
             }
             else
             {
-
-                WordBuilder(number);
+                AddWords(number, 1);
             }
         }
 
-         private static void WordBuilder(int number){
-            EnglishTextNumber += " " + texTDictionary[number];
-        }
+        private static void AddWords(int number, int dividerFactor)
+        {
+            int remainder = number % dividerFactor;
 
+            int factorCount = (number - remainder) / dividerFactor;
+
+            if (factorCount != 0 && dividerFactor > 10) EnglishNumberBuilder(factorCount);
+
+            if (dividerFactor%10 == 0)
+            {
+                _numberInEnglishWords += " " + wordsOfEnglishNumbers[(dividerFactor == 10 ? factorCount : 1) * dividerFactor];
+            }
+            else
+            {
+                _numberInEnglishWords += " " + wordsOfEnglishNumbers[number];
+            }
+
+            EnglishNumberBuilder(remainder);
+        }
     }
 }
